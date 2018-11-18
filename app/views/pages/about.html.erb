@@ -1,0 +1,5 @@
+<% content_for :page_title, 'About Us - Custom page title' %>
+
+<%= simple_form_for :page do |form| %>
+  <%= cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }, class: "ckeditor" %>
+<% end %>

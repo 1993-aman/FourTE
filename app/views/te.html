@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	html, body {
+    margin: 0;
+    height: 100%;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  
+$('body').click(function(e) {
+
+    var target = $(e.target), article;
+
+    debugger
+    if(target.is('#button1')) {
+       article = $("body").css("background-color", "red" );
+    } else if (target.is('#button2')) {
+       article = $("body").css("background-color", "black" );
+    } else if (target.is('#button3')) {
+       article = $("body").css("background-color", "blue" );
+    }
+    else {    
+       article = $("body").css("background-color", "white" );
+    }
+
+})
+});
+</script>
+
+</head>
+<body id="body">
+
+<button id ="button1">Red</button>
+<button id ="button2">Black</button>
+<button id ="button3">Blue</button>
+
+</body>
+</html>

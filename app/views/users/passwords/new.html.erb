@@ -1,0 +1,19 @@
+<div class="agile">
+	<div class="signin-form profile">
+		<h3>Forgot your password?</h3>
+		<div class="login-form">
+			<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<%= f.error_notification %>
+				<%= f.input :email, label: false, required: true,placeholder: "E-mail", autofocus: true, label_html: { class: 'text-center' } %>
+
+				<%= f.submit "Submit" %>
+			<% end %>
+		</div>
+		<p>
+		<%- if controller_name != 'sessions' %>
+			<%= link_to new_session_path(resource_name) do %>
+				<h4>Log in here</h4>
+			<% end %>
+		<% end -%></p>
+	</div>
+</div>

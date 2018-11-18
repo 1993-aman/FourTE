@@ -1,0 +1,20 @@
+<% @posts.each do |post| %>
+  <div class="post-preview">
+    <a href="post.html">
+      <h2 class="post-title">
+        <%= post.title %>
+      </h2>
+      <h3 class="post-subtitle">
+        <%= post.content.to_s.html_safe %>
+      </h3>
+    </a>
+    <p class="post-meta">Posted by
+      <a href="#"><%= post.user.try(:full_name) %></a>
+      on <%= post.created %></p>
+  </div>
+  <hr>
+<% end %>
+<!-- Pager -->
+<div class="clearfix">
+  <a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a>
+</div>

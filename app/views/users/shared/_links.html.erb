@@ -1,0 +1,30 @@
+<div class="header-social wthree">
+	<%- if controller_name != 'sessions' %>
+		<%= link_to new_session_path(resource_name) do %>
+			<h5>Log in here</h5>
+		<% end %>
+	<% end -%>
+
+	<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+	  <%= link_to new_confirmation_path(resource_name) do %>
+	  	<h5>Didn't receive confirmation instructions?</h5>
+	  <% end %>
+	<% end -%>
+
+	<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+	  <%= link_to new_unlock_path(resource_name) do %>
+	  	<h5>Didn't receive unlock instructions?</h5>
+	  <% end %>
+	<% end -%>
+
+	<%- if devise_mapping.omniauthable? %>
+	  <%- resource_class.omniauth_providers.each do |provider| %>
+	    <%= link_to  omniauth_authorize_path(resource_name, provider),class: "#{OmniAuth::Utils.camelize(provider)}" do%>
+	    	<% provider = OmniAuth::Utils.camelize(provider).downcase == 'googleoauth2' ? 'google' : OmniAuth::Utils.camelize(provider).downcase %>
+	    	<h5><%= "<i class='fa fa-#{provider}' aria-hidden='true'></i> #{provider.capitalize}".html_safe %></h5>
+	    <% end %>
+	  <% end -%>
+	<% end -%>
+</div>
+<div class="clear"></div>
+
